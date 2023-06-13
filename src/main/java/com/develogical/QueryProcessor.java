@@ -37,6 +37,20 @@ public class QueryProcessor {
             String[] components = query.split(" ");
             return String.valueOf(Integer.parseInt(components[2]) * Integer.parseInt(components[5].replace("?", "")));
         }
+        if (query.toLowerCase().contains("square and a cube")) {
+            String[] components = query.split(": ");
+            String[] numbers = components[1].split(",");
+            Integer max = 0;
+            for (String number : numbers) {
+                Integer integer = Integer.parseInt(number.replace(" ", "").replace("?", ""));
+                if (Math.floor(Math.sqrt(integer)) - (Math.sqrt(integer)) == 0 && Math.floor(Math.cbrt(integer)) - (Math.cbrt(integer)) == 0) {
+                    return String.valueOf(integer);
+                }
+            }
+            return String.valueOf(max);
+
+        }
+
 
         return "";
     }
