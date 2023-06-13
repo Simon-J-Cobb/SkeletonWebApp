@@ -29,4 +29,9 @@ public class QueryProcessorTest {
   public void plus() throws Exception {
     assertThat(queryProcessor.process("What is 27 plus 99?"), containsString("126"));
   }
+
+  @Test
+  public void largest() throws Exception {
+    assertThat(queryProcessor.process("Which of the following numbers is the largest: 99, 15, 76?"), containsString("99"));
+  }
 }
