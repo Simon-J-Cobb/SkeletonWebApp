@@ -14,6 +14,11 @@ public class QueryProcessor {
     if (query.toLowerCase().contains("name")){
       return "Micheal Scott";
     }
+    if (query.toLowerCase().contains("plus")){
+        String[] components = query.split(" ");
+        return String.valueOf(Integer.parseInt(components[2]) + Integer.parseInt(components[4].replace("?","")));
+
+    }
 
     return "";
   }
