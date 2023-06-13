@@ -37,6 +37,10 @@ public class QueryProcessor {
             String[] components = query.split(" ");
             return String.valueOf(Integer.parseInt(components[2]) * Integer.parseInt(components[5].replace("?", "")));
         }
+        if (query.toLowerCase().contains("minus")) {
+            String[] components = query.split(" ");
+            return String.valueOf(Integer.parseInt(components[2]) * Integer.parseInt(components[4].replace("?", "")));
+        }
         if (query.toLowerCase().contains("square and a cube")) {
             String[] components = query.split(": ");
             String[] numbers = components[1].split(",");
@@ -81,6 +85,6 @@ public class QueryProcessor {
             ++i;
         }
 
-        return flag;
+        return !flag;
     }
 }
