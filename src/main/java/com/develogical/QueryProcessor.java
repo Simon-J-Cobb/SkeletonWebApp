@@ -50,8 +50,37 @@ public class QueryProcessor {
             return String.valueOf(max);
 
         }
+        if(query.toLowerCase().contains("primes")){
+            String[] components = query.split(": ");
+            String[] numbers = components[1].split(",");
+            Integer max = 0;
+            for (String number : numbers) {
+                Integer integer = Integer.parseInt(number.replace(" ", "").replace("?", ""));
+                if (isPrime(integer)) {
+                    return String.valueOf(integer);
+                }
+            }
+            return String.valueOf(max);
+
+        }
 
 
         return "";
+    }
+
+    public Boolean isPrime(Integer num){
+        boolean flag = false;
+        int i = 2;
+        while (i <= num / 2) {
+            // condition for nonprime number
+            if (num % i == 0) {
+                flag = true;
+                break;
+            }
+
+            ++i;
+        }
+
+        return flag;
     }
 }
